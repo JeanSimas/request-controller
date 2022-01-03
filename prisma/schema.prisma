@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Section {
+  id        String      @id @default(uuid())
+  name      String
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  Requester Requester[]
+}
+
+model Requester {
+  id           String     @id @default(uuid())
+  name         String
+  registration String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  section      Section    @relation(fields: [sectionId], references: [id])
+  sectionId    String
+  Requests     Requests[]
+}
+
+model Requests {
+  id          String    @id @default(uuid())
+  summary     String
+  description String
+  priority    String
+  status      String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  finishedAt  DateTime
+  requester   Requester @relation(fields: [requesterId], references: [id])
+  requesterId String
+}
