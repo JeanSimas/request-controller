@@ -16,18 +16,24 @@ export class SectionService {
   }
 
   findAll() {
-    return `This action returns all section`;
+    return this.prisma.section.findMany()
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} section`;
+  findOne(id: string) {
+    return this.prisma.section.findUnique({
+      where: { id }
+    })
   }
 
-  update(id: number, updateSectionDto: UpdateSectionDto) {
-    return `This action updates a #${id} section`;
+  update(id: string, updateSectionDto: UpdateSectionDto) {
+    return this.prisma.section.update({
+      where: { id }, data: {
+        name: updateSectionDto.name
+      }
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} section`;
+  remove(id: string) {
+    return this.prisma.section.delete({ where: { id } });
   }
 }
