@@ -8,15 +8,15 @@
 [ ] Buscar chamados por categoria
 [ ] Deletar chamado
 
-[ ] Criar setor
-[ ] Alterar setor
-[ ] Buscar setor
-[ ] Deletar setor
+[x] Criar setor
+[x] Alterar setor
+[x] Buscar setor
+[x] Deletar setor
 
-[ ] Criar requisitante
-[ ] Alterar requisitante
-[ ] Buscar requisitante
-[ ] Deletar requisitante
+[x] Criar requisitante
+[x] Alterar requisitante
+[x] Buscar requisitante
+[x] Deletar requisitante
 
 ---
 ## Banco de dados
